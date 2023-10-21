@@ -9,7 +9,7 @@ class Server {
 
     this.paths = {
       usuarios: "/api/usuarios",
-      chat: "/api/chat",
+      store: "/api/store",
     };
 
     // Conectar a base de datos
@@ -39,7 +39,11 @@ class Server {
 
   routes() {
     this.app.use(this.paths.usuarios, require("../routes/usuarios"));
+<<<<<<< HEAD
+    this.app.use(this.paths.store, require("../routes/store"));
+=======
     this.app.use(this.paths.chat, require("../routes/chat"));
+>>>>>>> 4b0d0d2f333d7b4ec194a51162609438866d5a7e
   }
 
   listen() {
