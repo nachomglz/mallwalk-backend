@@ -48,15 +48,11 @@ class Server {
   }
 
   routes() {
-<<<<<<< HEAD
     this.app.use(this.paths.usuarios, require("../routes/usuarios"));
     this.app.use(this.paths.store, require("../routes/store"));
     this.app.use(this.paths.dailytask, require("../routes/dailyTask"));
     this.app.use(this.paths.ranking, require("../routes/ranking"));
-=======
-    this.app.use(this.paths.store, require("../routes/store"));
     this.app.use(this.paths.bill, require("../routes/bill"));
->>>>>>> 5db1aa4b1602f1116fce081eae331c0a1227f616
   }
 
   listen() {
