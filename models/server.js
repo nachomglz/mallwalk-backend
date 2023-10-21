@@ -48,7 +48,6 @@ class Server {
   }
 
   routes() {
-    this.app.use(this.paths.usuarios, require("../routes/usuarios"));
     this.app.use(this.paths.store, require("../routes/store"));
     this.app.use(this.paths.dailytask, require("../routes/dailyTask"));
     this.app.use(this.paths.ranking, require("../routes/ranking"));
