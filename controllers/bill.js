@@ -1,22 +1,34 @@
 const Bill = require("../models/bill");
+const { join } = require("path");
+const { randomUUID } = require("crypto");
+const { uploadFile } = require("../helpers/file");
+const { processBill } = require("../helpers/bill");
 
 const uploadBill = async (req, res) => {
   try {
-    const device = req.header("device");
+    if (req.files.length === 0) {
+      return res.json({
+        ok: false,
+        error: "File not upload",
+      });
+    }
 
+    const { file } = req.files;
 
+    const shortName = file.name.split(".");
+    const extension = shortName[shortName.length - 1];
+    const fileName = randomUUID() + "." + extension;
+    const filePath = join(__dirname, "../assets/", fileName);
 
+    await uploadFile(file, filePath);
 
-
-    const bill = new Bill({ amount, device, date });
-
-    await bill.save();
+    const processedText = await processBill(filePath);
 
     return res.json({
       ok: true,
-      data: bill,
+      data: processedText,
     });
-  } catch (error) {
+  } catch (e) {
     console.log("Error: ", e);
 
     return res.json({
@@ -30,11 +42,13 @@ const getBills = async (req = request, res) => {
   try {
     const bills = await Bill.find({ status: true });
 
+    console.log(bills);
+
     return res.json({
       ok: true,
       data: bills,
     });
-  } catch (error) {
+  } catch (e) {
     console.log("Error: ", e);
 
     return res.json({
@@ -61,7 +75,7 @@ const getBillsByDevice = async (req = request, res) => {
       ok: true,
       data: bills,
     });
-  } catch (error) {
+  } catch (e) {
     console.log("Error: ", e);
 
     return res.json({
@@ -88,7 +102,7 @@ const getBillById = async (req, res) => {
       ok: true,
       data: bill,
     });
-  } catch (error) {
+  } catch (e) {
     console.log("Error: ", e);
 
     return res.json({
@@ -129,28 +143,10 @@ const deleteBillById = async (req, res) => {
   }
 };
 
-// const processBill = async (req, res) => {
-//   const clientOptions = {
-//     apiEndpoint: "eu-vision.googleapis.com",
-//     keyFilename: "../mallwalk-app-8b093e57dcc8.json",
-//   };
-
-//   const client = new vision.ImageAnnotatorClient(clientOptions);
-
-//   const [result] = await client.textDetection(
-//     "/Users/vemiliogp/Downloads/mallwalk-backend/assets/bill.jpeg"
-//   );
-//   const detections = result.textAnnotations;
-
-//   res.json({
-//     detections,
-//   });
-// };
-
 module.exports = {
   deleteBillById,
   getBillById,
   getBillsByDevice,
   getBills,
-  uploadBill
+  uploadBill,
 };

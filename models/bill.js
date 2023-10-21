@@ -6,10 +6,6 @@ const BillSchema = new Schema(
       type: String,
       required: [true, "The device is required"],
     },
-    date: {
-      type: Date,
-      require: [true, "The date bill is required"],
-    },
     amount: {
       type: Number,
       required: [true, "The amount bill is required"],
@@ -18,12 +14,24 @@ const BillSchema = new Schema(
       type: Boolean,
       default: true,
     },
+    url: {
+      type: String,
+      required: [true, "The url bill is required"],
+    },
+    storeName: {
+      type: String,
+      required: [true, "The store name is required"],
+    },
+    shoppingDate: {
+      type: String,
+      require: [true, "The date bill is required"],
+    },
   },
   { timestamps: true }
 );
 
 BillSchema.methods.toJSON = function () {
-  const { __v, ...bill } = this.toObject();
+  const { __v, status, ...bill } = this.toObject();
 
   return bill;
 };

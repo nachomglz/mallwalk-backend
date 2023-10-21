@@ -3,8 +3,8 @@ const { getBillById, getBills, deleteBillById, getBillsByDevice, uploadBill } = 
 
 const router = Router(); 
 
-router.get("/:id", getBillById);
 router.get("/all", getBills);
+router.get("/:id", getBillById);
 router.get("/", getBillsByDevice);
 router.delete("/:id", deleteBillById);
 router.post("/upload", uploadBill);
