@@ -18,11 +18,11 @@ const ProfileSchema = Schema({
 });
 
 ProfileSchema.methods.toJSON = function() {
-    const { __v, password, _id, ...store } = this.toObject();
+    const { __v, password, _id, ...profile } = this.toObject();
   
-    store.uid = _id;
+    profile.uid = _id;
   
-    return store;
+    return profile;
 }
 
 module.exports = model("Profile", ProfileSchema);

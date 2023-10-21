@@ -8,7 +8,6 @@ const {
   usuariosDelete,
 } = require("../controllers/usuarios");
 const {
-  esRoleValido,
   emailExiste,
   emailUsuarioPorId,
 } = require("../helpers/db-validators");
@@ -26,7 +25,6 @@ router.put(
   [
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(emailUsuarioPorId),
-    check("rol").optional().custom(esRoleValido),
     validarCampos,
   ],
   usuariosPut
@@ -42,7 +40,6 @@ router.post(
     check("correo", "El correo no es válido").isEmail(),
     check("correo").custom(emailExiste),
     // check("rol", "No es un rol válido").isIn(["ADMIN_ROLE", "USER_ROLE"]),
-    check("rol").custom(esRoleValido),
     validarCampos,
   ],
   usuariosPost
