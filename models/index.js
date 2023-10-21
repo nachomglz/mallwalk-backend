@@ -1,12 +1,12 @@
-const Usuario = require("./usuario");
 const Profile = require("./profile");
 const Store = require("./store");
+const Bill = require('./bill');
 const Server = require("./server");
 
 
 module.exports = {
   Store,
   Server,
-  Usuario,
+  Bill,
   Profile
 };
