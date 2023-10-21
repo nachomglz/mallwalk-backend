@@ -10,6 +10,7 @@ class Server {
     this.paths = {
       usuarios: "/api/usuarios",
       store: "/api/store",
+      dailytask: "/api/dailytask",
     };
 
     // Conectar a base de datos
@@ -40,6 +41,7 @@ class Server {
   routes() {
     this.app.use(this.paths.usuarios, require("../routes/usuarios"));
     this.app.use(this.paths.store, require("../routes/store"));
+    this.app.use(this.paths.dailytask, require("../routes/dailyTask"));
   }
 
   listen() {
