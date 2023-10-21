@@ -30,6 +30,7 @@ const getDailyTask = async (req, res) => {
     res.json({
       dailytask,
     });
+    
   } catch (error) {
     const { code = 500, message = "Unexpected Error" } = error;
     res.status(code).json({ code, message });

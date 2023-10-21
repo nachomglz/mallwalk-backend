@@ -32,4 +32,7 @@ const DailyTaskSchema = Schema({
   },
 });
 
+
+// You can continue adding more objects with different variations.
+
 module.exports = model("DailyTask", DailyTaskSchema);
