@@ -9,6 +9,10 @@ const PlaceSchema = Schema({
     type: Schema.Types.String,
     required: [true, "Img is required"],
   },
+  status: {
+    type: Schema.Types.Number,
+    default: 0,
+  },
   date: {
     type: Schema.Types.String,
     default: () => new Date().toISOString().split("T")[0],
