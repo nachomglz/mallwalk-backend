@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "mallwalk-app",
+  "private_key_id": "8b093e57dcc8975a52414ae231742f90e1373a76",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDec4oAgwlrHysC\nANl+r113qSynceecRreQQKQHv2+7txfICi3ZvLqMPwfg5Zbz+KCkhA/UCsp/dnOQ\n+S+CJ2b9vvdIiXiZUTA2Ive3GWLLG9rHag82lq/S1X1yzbFVhkziX3Nkz0dBTZ41\nu2ZfsZt2E+RdvNW0o2PvRg1tM2VYd80fzhGnpXKTP4LTj+Ji9NSICGM/5ujVSmF/\nT7oHjgHsf6CI73by/GhJLzr+mcy3SDjZAZ6AP0r9SxkgORrERAE9B0EBNcD+vQlk\n2Uck4Ri/ND+JHhEviVY+5Be63x8sgkpBt9u8+hiNQ6YWrNT5oAlUjQ8NVft21/Qu\n2HfPbsaZAgMBAAECggEAKd7GcW04pxyRPEnLplA8wAqsOII0jZIz9+dq2Hh8f/Eo\n/UKJOcwPstkkUvzz6kz4c67VydwUHGS/wOBeRFnFRWqd4d3aQMVq1S3EwYZ6NW+z\nQMiiP2yigIUlnSfBQq9KJmu/7RAkwdJpvoRc8xMbh2CcIdaqxNriMwXU/iJn53wf\nN/AvRNwkISX6BQi7wz0IQLjf+Evx7i/vKjfWxdLEZLWwVAq4qmLzrDiQQXiWzHyG\nXeqCEFkxdPPrwZ9S6hHl9GCecW1mO1N6KwOZZYcn5giHDZoz+PL5FU2pFT++tgcS\nvyMLwIT1QigTU4bMQRaNaMdlejSWyyl6cCiEW8k95wKBgQD85theEnas4PJajb7X\nenLKdUPWqYFTOwz7WDcTBFx6Cpud/gXLsairHFtdc+MmDeL0dfKIWh9eCGFDsXY+\nGhLuZ0Cm5+MrS54BSQMROp8DVkgYBNSN7UIxSx9VB83Kfak9/fXbgknYmLDbJnwr\n+KoK3uqqcri5kJ2M8FkI/SKv1wKBgQDhLTHcR1bzU5pNs2NDS4Z7Du+o5svPOywy\noUUQcf5Wt/+xnHAP0pC4gy/QApYwA7zOiqiRCpxyxQyEqSCs90sbm5/Bf2u5Tq6k\nsO6TnNu7FqCnGqtUui4djEnc7ERPx5RkE71K0IguIEXEle6mKbayccHusWuq+j0m\nqFmW2RIvDwKBgDPMWD6US4hHHnxbkd3yb3Z2JCngV+OjMZp9S/JyLzqz14G5mJhK\n0AAT88alSL3vlC97xOwWgVwyHTHPNCeuEXiQ31YQIqAogblDqgQqXI1Da8q3mo1j\nLe6Is2coDQdPS42t6WBHRDa/t2F7dW1QJgvJ8ohsrNcc/pfyVloX9rXLAoGADKMa\nr0AZsyI4ALBWm8o7S+C0toftXD335weB9sBPA9LjuLYM2/Z3RMOoBUZ/40XybKz/\ndNRhn1dLso5DVTGzt2Lufk+GXin6Ryfe283rzv4gGgC3KNQiDmp3IrznwIp024D4\nGKDHY79P6w53DEA/Dpivx5ORdVEB6Y99J6gbCyUCgYEAw3RBoUnpGldmEjTqxg5n\n6Rw5lRv1OozfacEhbDqXmW7lA/JqOtvoPhaHCeWqM+Ab92QMvvF23K8lRXDv/nOc\n5SgvBI9ynQOW30cIs4FlVUB+wqhy1AI8itSMRbUkvGToELzNbgGa5GbwxBpVLamp\nrZ1d2LyFQOJk/h1RIBKf0U8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mallwalk@mallwalk-app.iam.gserviceaccount.com",
+  "client_id": "116310527436510641526",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mallwalk%40mallwalk-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

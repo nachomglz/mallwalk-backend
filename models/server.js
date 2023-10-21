@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const upload = require("express-fileupload");
 const { dbConnection } = require("../database/config");
 
 class Server {
@@ -10,10 +11,11 @@ class Server {
     this.paths = {
       usuarios: "/api/usuarios",
       store: "/api/store",
+      bill: "/api/bill"
     };
 
     // Conectar a base de datos
-    this.conectarDB();
+    this.connectDB();
 
     // Middlewares
     this.middlewares();
@@ -22,28 +24,30 @@ class Server {
     this.routes();
   }
 
-  async conectarDB() {
+  async connectDB() {
     await dbConnection();
   }
 
   middlewares() {
-    // CORS
+    // Cors
     this.app.use(cors());
 
     // Lectura y parseo del body
     this.app.use(express.json());
 
-    // Directorio público
-    this.app.use(express.static("public"));
+    // Carga de archivos
+    this.app.use(
+      upload({
+        useTempFiles: true,
+        tempFileDir: "/tmp/",
+        createParentPath: true,
+      })
+    );
   }
 
   routes() {
-    this.app.use(this.paths.usuarios, require("../routes/usuarios"));
-<<<<<<< HEAD
     this.app.use(this.paths.store, require("../routes/store"));
-=======
-    this.app.use(this.paths.chat, require("../routes/chat"));
->>>>>>> 4b0d0d2f333d7b4ec194a51162609438866d5a7e
+    this.app.use(this.paths.bill, require("../routes/bill"));
   }
 
   listen() {
