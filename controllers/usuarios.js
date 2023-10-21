@@ -3,19 +3,26 @@ const bcryptjs = require("bcryptjs");
 const Usuario = require("../models/usuario");
 
 const usuariosGet = async (req = request, res = response) => {
-  // const { q, nombre = "No name", apiKey, page = 1, limit } = req.query;
-  const { limite = 5, desde = 0 } = req.query;
-  const query = { estado: true };
-
+  try{
   const [total, usuarios] = await Promise.all([
-    Usuario.countDocuments(query),
-    Usuario.find(query).limit(limite).skip(desde),
+    Usuario.countDocuments(),
+    Usuario.find()
   ]);
 
   res.json({
-    total,
-    usuarios,
+    total : total,
+    data : {
+      usuarios
+    }
   });
+} catch (error) {
+  console.log(error);
+  res.status(500).json({
+    ok: false,
+    msg: "Error get User",
+    error: error,
+  });
+}
 };
 
 const usuariosPost = async (req, res) => {

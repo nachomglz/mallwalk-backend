@@ -37,6 +37,27 @@ const getDailyTask = async (req, res) => {
   }
 };
 
+const postDailyTask = async (req, res) => {
+  const { body } = req;
+  const dailyTask = new DailyTask(body);
+  try {
+    await dailyTask.save();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      msg: "Error inesperado",
+      error: error,
+    });
+  }
+  res.json({
+    data: { dailyTask}
+  })
+
+
+}
+
 module.exports = {
   getDailyTask,
+  postDailyTask
 };

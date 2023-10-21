@@ -8,14 +8,8 @@ const StoreSchema = Schema({
         trim: true
     },
     location: {
-        longitude: {
-            type: Number,
-            required: true
-        },
-        latitude: {
-            type: Number,
-            required: true
-        }
+        type: [Schema.Types.Number], 
+        index: '2dsphere'
     },
     categories: [{
         type: String,

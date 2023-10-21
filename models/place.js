@@ -2,12 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const PlaceSchema = Schema({
   location: {
-    longitude: {
-      type: Schema.Types.Number,
-    },
-    latitude: {
-      type: Schema.Types.Number,
-    },
+    type: [Schema.Types.Number],  // Array de números
+    index: '2dsphere'  // Índice geoespacial
   },
   img: {
     type: Schema.Types.String,

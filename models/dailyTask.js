@@ -6,14 +6,6 @@ const DailyTaskSchema = Schema({
     type: Schema.Types.String,
     required: [true, "DeviceId is required"],
   },
-  location: {
-    longitude: {
-      type: Schema.Types.Number,
-    },
-    latitude: {
-      type: Schema.Types.String,
-    },
-  },
   places: [
     {
       type: Schema.Types.ObjectId,
@@ -31,7 +23,6 @@ const DailyTaskSchema = Schema({
     default: getFormattedDate(),
   },
 });
-
 
 // You can continue adding more objects with different variations.
 
