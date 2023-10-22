@@ -10,14 +10,10 @@ class Server {
 
     this.paths = {
       store: "/api/store",
-<<<<<<< HEAD
-      bill: "/api/bill",
-      upload: "/api/upload"
-=======
+      upload: "/api/upload",
       dailytask: "/api/dailytask",
       ranking: "/api/ranking",
       bill: "/api/bill"
->>>>>>> f4b39eaa5cb5f9dea049f40d4461bb6222209d56
     };
 
     // Conectar a base de datos
