@@ -3,7 +3,7 @@ const { getFormattedDate } = require("../helpers/date");
 
 const getDailyTask = async (req, res) => {
   try {
-    const { deviceId } = req.params;
+    const { deviceId } = req.query;
 
     const today = getFormattedDate();
     let dailytask = await DailyTask.findOne({
@@ -21,16 +21,15 @@ const getDailyTask = async (req, res) => {
 
     for (const place of dailytask.places) {
       if (checkedPlacesIds.includes(place._id.toString())) {
-        place.status = 1;
+        place["status"] = 1;
       } else {
-        place.status = 0;
+        place["status"] = 0;
       }
     }
 
     res.json({
-      dailytask,
+      data: dailytask,
     });
-    
   } catch (error) {
     const { code = 500, message = "Unexpected Error" } = error;
     res.status(code).json({ code, message });
