@@ -47,7 +47,8 @@ ScoreSchema.statics.updateScore = async function (deviceId, points, add, type) {
     }
 
     if (add) {
-      score[scoreTypes[type]] += 1;
+      const typse = scoreTypes[type];
+      newScore[scoreTypes[type]] += 1;
       newScore.totalpoints += points;
     } else {
       newScore.totalpoints -= points;

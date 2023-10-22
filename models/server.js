@@ -9,12 +9,12 @@ class Server {
     this.port = process.env.PORT || 3000;
 
     this.paths = {
-      usuarios: "/api/usuarios",
       store: "/api/store",
+      upload: "/api/upload",
       dailytask: "/api/dailytask",
       ranking: "/api/ranking",
       bill: "/api/bill",
-      score: "/api/score"
+      score: "/api/score",
     };
 
     // Conectar a base de datos
@@ -54,6 +54,7 @@ class Server {
     this.app.use(this.paths.ranking, require("../routes/ranking"));
     this.app.use(this.paths.bill, require("../routes/bill"));
     this.app.use(this.paths.score, require("../routes/score"));
+    this.app.use(this.paths.upload, require("../routes/upload"));
   }
 
   listen() {

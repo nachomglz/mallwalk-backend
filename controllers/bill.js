@@ -2,7 +2,9 @@ const Bill = require("../models/bill");
 const { join } = require("path");
 const { randomUUID } = require("crypto");
 const { uploadFile } = require("../helpers/file");
-const { processBill } = require("../helpers/bill");
+const scores = require("../models/score");
+
+const storesName = ["ZARA", "MANGO", "PULL AND BEAR", "BURGER KING", "APPLE", "SAMSUNG"];
 
 const uploadBill = async (req, res) => {
   try {
@@ -22,11 +24,22 @@ const uploadBill = async (req, res) => {
 
     await uploadFile(file, filePath);
 
-    const processedText = await processBill(filePath);
+    const bill = new Bill({
+      amount: (Math.random() * 100).toFixed(2),
+      device: req.header("device"),
+      url: fileName,
+      shoppingDate: new Date().toISOString(),
+      storeName: storesName[Math.floor(Math.random() * storesName.length)]
+    });
+
+    await scores.updateScore(device, 20, true, 1)
+    await bill.save();
+
+    console.log(bill)
 
     return res.json({
       ok: true,
-      data: processedText,
+      data: bill,
     });
   } catch (e) {
     console.log("Error: ", e);
@@ -38,15 +51,13 @@ const uploadBill = async (req, res) => {
   }
 };
 
-const getBills = async (req = request, res) => {
+const getBills = async (req, res) => {
   try {
     const bills = await Bill.find({ status: true });
 
-    console.log(bills);
-
     return res.json({
       ok: true,
-      data: bills,
+      data: bills.reverse(),
     });
   } catch (e) {
     console.log("Error: ", e);
@@ -58,7 +69,7 @@ const getBills = async (req = request, res) => {
   }
 };
 
-const getBillsByDevice = async (req = request, res) => {
+const getBillsByDevice = async (req, res) => {
   try {
     const device = req.header("device");
 
@@ -73,7 +84,7 @@ const getBillsByDevice = async (req = request, res) => {
 
     return res.json({
       ok: true,
-      data: bills,
+      data: bills.reverse(),
     });
   } catch (e) {
     console.log("Error: ", e);
