@@ -13,7 +13,8 @@ class Server {
       store: "/api/store",
       dailytask: "/api/dailytask",
       ranking: "/api/ranking",
-      bill: "/api/bill"
+      bill: "/api/bill",
+      score: "/api/score"
     };
 
     // Conectar a base de datos
@@ -52,6 +53,7 @@ class Server {
     this.app.use(this.paths.dailytask, require("../routes/dailyTask"));
     this.app.use(this.paths.ranking, require("../routes/ranking"));
     this.app.use(this.paths.bill, require("../routes/bill"));
+    this.app.use(this.paths.score, require("../routes/score"));
   }
 
   listen() {

@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const PlaceSchema = Schema({
+  name: {
+    type: Schema.Types.String,
+    required: [true, "Name is required"],
+  },
   location: {
     type: [Schema.Types.Number],
     required: [true, "Location is required"],
@@ -12,6 +16,10 @@ const PlaceSchema = Schema({
   status: {
     type: Schema.Types.Number,
     default: 0,
+  },
+  reward: {
+    type: Schema.Types.Number,
+    default: 5,
   },
   date: {
     type: Schema.Types.String,
@@ -26,6 +34,7 @@ const PlaceSchema = Schema({
 
 const placesData = [
   {
+    name: "Zona de juegos para niños",
     location: [36.739472312969184, -4.552233984469687],
     img: "image1.jpg",
     status: 0,
@@ -33,6 +42,7 @@ const placesData = [
     category: ["technologies", "laptops"],
   },
   {
+    name: "Tienda de helados Sweat treats",
     location: [36.739472312969184, -4.552233984469687],
     img: "image2.jpg",
     status: 1,
@@ -40,6 +50,7 @@ const placesData = [
     category: ["Restaurant", "Food", "italian"],
   },
   {
+    name: "Fuente de agua",
     location: [36.739472312969184, -4.552233984469687],
     img: "image3.jpg",
     status: 0,
@@ -47,6 +58,7 @@ const placesData = [
     category: ["shoes"],
   },
   {
+    name: "Extintor",
     location: [36.739472312969184, -4.552233984469687],
     img: "image4.jpg",
     status: 1,

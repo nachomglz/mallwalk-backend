@@ -1,4 +1,4 @@
-const Score = require("../models/scores");
+const Score = require("../models/score");
 
 const geRanking = async (req, res) => {
   try {
