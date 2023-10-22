@@ -4,7 +4,7 @@ const Store = require("../models/store");
 const storeGet = async (req = request, res = response) => {
   try {
     const [total, store] = await Promise.all([
-      Store.countDocuments(query),
+      Store.countDocuments(),
       Store.find(),
     ]);
     res.json({
